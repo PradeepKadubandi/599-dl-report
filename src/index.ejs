@@ -11,15 +11,15 @@
 
 <d-front-matter>
   <script type="text/json">{
-  "title": "Example Distill Submission",
-  "description": "An example project using webpack and svelte-loader and ejs to inline SVGs",
+  "title": "Learning a Sentence Embedding by Actuation",
+  "description": "CSCI 599 Course Project Final Report",
   "password": "svgs",
   "authors": [
     {
-      "author": "Ludwig Schubert",
-      "authorURL": "https://schubert.io/",
-      "affiliation": "Google Brain Team",
-      "affiliationURL": "https://g.co/brain"
+      "author": "Team DeepJohn",
+      "authorURL": "https://github.com/zhanpenghe/embed2learn/",
+      "affiliation": "University of Southern California",
+      "affiliationURL": "https://www.cs.usc.edu/"
     }
   ],
   "katex": {
@@ -43,10 +43,33 @@
 
 <d-article>
 
+  <h2>
+    Goal
+  </h2>
   <p>
-    Typically, we parameterize the input image as the RGB values of each pixel.
-    But that isn’t the only way to parameterize images.
-    And, as long as the mapping from parameters to images is differentiable, we can still optimize alternative parameterizations with gradient descent.
+    In recent years there has been great progress in algorithms in the field of deep reinforcement learning (DRL).
+    These algorithms have been applied to learning complex and diverse skills from raw observations.
+    Among these successes, learning representations of tasks in the form of latent space is demonstrated 
+    to be useful for learning composable skills \citep{hausman2018learning}.
+    While skills can be defined discretely with labels and used for planning, in real life,
+    humans tend to use natural language to describe a task.
+    For example, people can ask "take the cup from home, get on the bus to the office, and give it to me."
+    Such natural language instructions provide an expressive way to describe skill primitives 
+    and allow the human to be in the loop to assist an agent.
+  </p>
+
+  <h2>
+    Motivation
+  </h2>
+  <p>
+    We propose a novel method that learns an embedding function that 
+    embeds natural language sentences and their composability properties 
+    (eg. concatenation) to a continuous latent space.
+    Jointly, our approach also learns a policy that conditions on a latent 
+    variable and state information with reinforcement learning and 
+    variational inference. 
+    We will explore the property of our latent space and utilize it 
+    as a planning tool for complicated tasks.  
   </p>
 
   <figure class="subgrid">
