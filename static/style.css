@@ -39,3 +39,7 @@ d-figure > figure {
   top: 26px;
   left: -48px;
 }
+
+figure figcaption {
+  text-align: center;
+}

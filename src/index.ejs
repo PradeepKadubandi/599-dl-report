@@ -72,18 +72,70 @@
     as a planning tool for complicated tasks.  
   </p>
 
-  <figure class="subgrid">
-    <figcaption style="grid-column: kicker">
-      <!-- <span class="figure-number">Figure 1:</span> -->
-      <span style="hyphens: manual;">As long as an </span>
-      <span style="background-color: #FFF1E7; padding-left: 2px; padding-right: 2px;">image para&shy;meter&shy;ization</span>
-      <span>is differ&shy;entiable, we can back&shy;propagate</span>
-      <span style="white-space: nowrap;">( <img src="diagrams/backprop-arrow.svg" style="width: unset;"/> )</span>
-      <span>through it.</span>
+  <h2>Related Work</h2>
+  <p>
+      <b>Language-Guided Agent</b> There has been extensive studies done in the
+      language-guided agent domain 
+      <d-cite key="macmahon2006walk"></d-cite>, <d-cite key="branavan2009reinforcement"></d-cite>, 
+      <d-cite key="misra2017mapping"></d-cite>, <d-cite key="latent_language_2018"></d-cite>, 
+      <d-cite key="coreyes2018guiding"></d-cite>.
+      Most of these works either learn a policy directly from state 
+      and instruction representation or learn an intermediate representation 
+      of goal and utilize it for planning.
+      In <d-cite key="oh2017zeroshot"></d-cite>, task embedding is used and 
+      conditioned on a policy for instruction following, but the instructions 
+      used in this work was defined by categorical task parameters rather 
+      than natural language. Our work not only explores using natural language 
+      as task descriptions but explicitly impose property for planning on 
+      our sentence embedding space.
+  </p>
+
+  <p><b>Task Embedding</b> Task embedding has been explored by 
+    <d-cite key="hausman2018learning"></d-cite>, which learns a mapping from 
+    task ID to a continuous space. However, sampling from this embedding 
+    function is hard because it takes task ID's, which need to be defined 
+    before the pre-training process, as input. 
+    Our work utilizes the flexibility of natural languages. This allows us 
+    to further utilize our latent space for learning from demonstration 
+    and generation trajectory descriptions.
+  </p>
+
+  <p>
+    <b>Sentence Embedding</b> Sentence embeddings is studied extensively 
+    by many researchers. For example, <d-cite key="conneauInferSent"></d-cite> 
+    learns a semantic representation by natural language inference. 
+    Our work focuses on learning representations to aid the agent to 
+    make decisions. Exploiting the advantages of interacting with the 
+    environment, our methods should learn a minimal representation of 
+    natural language commands and generalize among similar sentences.
+  </p>
+
+  <h2>Problem Formulation</h2>
+  <p>
+      In our multi-task RL setting, we pre-define a set of low-level skills 
+      with their descriptions $T = \{ st_1, ..., st_N \} \subset ST$, 
+      and accompanying, per-skill reward functions $r_{st \in T}(s, a)$. 
+      We would like to learn a controller that takes both state information 
+      and natural language commands into account. We also want to learn 
+      an embedding function from which we can sample efficiently.
+  </p>
+
+  <h2>Models and Approaches</h2>
+  <p>
+      Our method, as illustrated in Figure 1, is motivated by 
+      <d-cite key="hausman2018learning"></d-cite>. The model we design consists 
+      of three components: the task embedding network $p_{\phi}: ST \to Z$, 
+      the task embedding conditioned policy $\pi_{\theta}: S \times Z \to A$, 
+      and the inference network $q_\psi: (S \times A)^H \to Z$.
+  </p>
+
+  <figure>
+      <div class="l-body">
+          <%= require("../static/images/method_improved.svg") %>
+        </div>
+        <figcaption>
+      <span class="figure-number">Figure 1</span>
     </figcaption>
-    <div class="l-body">
-      <%= require("../static/diagrams/general.svg") %>
-    </div>
   </figure>
 
 </d-article>
