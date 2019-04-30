@@ -137,6 +137,66 @@
     </figcaption>
   </figure>
 
+  <p>
+      Given a sentence $st$ that describes the task, the task embedding 
+      network $p_\phi$ encodes the sentence to an embedding $z$. 
+      We model $p_\phi$ by an embedding lookup layer followed by 
+      a LSTM layer and a multi-layer perceptron with two heads in 
+      the last layer to extract information from the natural language 
+      task description and output a distribution for task embedding $z$.
+      For simple experiments in the point mass experiment with a small 
+      corpus, we train the task embedding network from scratch; for more 
+      complicated experiments with large corpus, we pre-train the embedding 
+      lookup layer with NCE loss and then use the pretrained vector 
+      representations of words for further training of the model.
+  </p>
+
+  <p>
+      With the task embedding $z$, the agent executes action sampled 
+      from $\pi_\theta$ to obtain action $a_i$ at given state $s_i$.
+      We model the policy network as a two-layer MLP with two-heads 
+      representing the mean and covariance of the distribution from 
+      which actions can be sampled.
+  </p>
+
+  <p>
+      To aid in learning the embedding function, we learn an inference 
+      function $q_\psi$ which, given a trajectory window $s_i^H$ of 
+      length $H$, predicts the latent vector $z$ which was fed to the 
+      low-level skill policy when it produced that trajectory.
+      This allows us to define an augmented reward which encourages 
+      the policy to produce distinct trajectories for different latent 
+      vectors. We learn $q_\psi$ in parallel with the policy and 
+      embedding functions. We model the inference network as a two-layer MLP.
+  </p>
+
+  <p>
+      In order to learn a latent space that is meaningful for planning, 
+      we would like to enforce some properties on our latent space.
+      For two commands $st_1$ and $st_2$, sending a concatenation of 
+      them to our low level controller should express behaviors of 
+      doing $st_1$ then $st_2$. Hence, we approach this by augmenting 
+      our RL objective with a regularization term, as shown below:
+  </p>
+
+  <p>
+      TODO: Show the equation
+  </p>
+
+  <h2>Experiments</h2>
+  <p>
+      We setup a point mass environment with natural language input 
+      to show that our method can learn task embeddings capable of 
+      finishing a distribution of different tasks. The environment 
+      has 4 different tasks, asking the point mass agent to move 
+      right, up, left, and down to a goal position that is 3 units 
+      away from the agent's start position. The agent's start position 
+      is fixed at the origin of the space. The natural language 
+      instructions are hardcoded for the simplicity of experiment setup.
+      The agent get a dense reward that is inversely proportional 
+      to the distance between the agent and the target location.
+  </p>
+  
 </d-article>
 
 
