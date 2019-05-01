@@ -203,13 +203,13 @@
       <%= require("../static/images/eq1.svg") %>
     </div>
   </figure>
-  <p style="text-align:center">where</p>
+  <p>where</p>
   <figure>
     <div class="l-body">
       <%= require("../static/images/eq2.svg") %>
     </div>
   </figure>
-  <p style="text-align:center">and</p>
+  <p>and</p>
   <figure>
     <div class="l-body">
       <%= require("../static/images/eq3.svg") %>
@@ -246,10 +246,6 @@
   </figure>
 
   <p>Our complete algorithm is shown below in Figure 5.</p>
-  <p>
-    <I><b>TODO</b>: Generate better algorithm.svg and replace the figure below.
-    Right now, it's terrible.</I>
-  </p>
   <figure>
     <div class="l-body">
       <img src="https://raw.githubusercontent.com/PradeepKadubandi/599-dl-report/master/static/images/algorithm.png" style="width: 90%">
@@ -311,8 +307,7 @@
   <h2>Future Work</h2>
   <p>
     <ul>
-      <li>Run the experiments in a more complicated setup than point mass.
-        (<b>TODO</b>: Should we just remove this line? Don't call it out explicitly)</li>
+      <li>Run the experiments in a more complicated and realistic environment.</li>
       <li>Build a more general purpose language instructions to run experiments.</li>
       <li>Running experiements on actual robots.</li>
     </ul>
@@ -337,12 +332,21 @@
 <d-appendix>
   <h3>Acknowledgments</h3>
   <p>
-    We are deeply grateful to Joseph J. Lim, Karl Pertsch.
+    We are deeply grateful to Joseph J. Lim, Karl Pertsch, without the help of whom this project would not have happened.
   </p>
 
   <h3>Author Contributions</h3>
   <p>
-    (<b>TODO</b>: Add details Or remove altogether)
+    <b>Zhanpeng He</b> provided the template code for the project, implemented KL term and hindsight data collection algorithm, and worked on making adjustments of the model to make training work.
+  </p>
+  <p>
+    <b>Jingyun Yang</b> implemented sentence embedding and KL term introduced in the work; he also worked on making model figures and illustrations.
+  </p>
+  <p>
+    <b>Pradeep Kadubandi</b> explored various experiment settings for our model and composed the final report of the project.
+  </p>
+  <p>
+    <b>Yao Gu</b> worked on the point mass environment on which we conducted all our experiments and developed part of our visualization code.
   </p>
 
   <d-footnote-list></d-footnote-list>
