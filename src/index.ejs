@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://distill.pub/template.v2.js"></script>
   <style><%= require("raw-loader!../static/style.css") %></style>
+  <style>
+    .l-body {
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
@@ -77,7 +82,7 @@
   </p>
   <figure>
     <div class="l-body">
-      <%= require("../static/images/teaser.svg") %>
+      <img src="https://raw.githubusercontent.com/PradeepKadubandi/599-dl-report/master/static/images/teaser.png" style="width: 50%">
     </div>
     <figcaption>
       <span class="figure-number">Fig 1. Concatenating simple tasks to describe
@@ -144,7 +149,7 @@
 
   <figure>
     <div class="l-body">
-      <%= require("../static/images/method_improved.svg") %>
+      <img src="https://raw.githubusercontent.com/PradeepKadubandi/599-dl-report/master/static/images/method_improved.png" style="width: 50%">
     </div>
     <figcaption>
       <span class="figure-number">Figure 2. Method</span>
@@ -214,7 +219,7 @@
   <p>Our KL Divergence regularization term is pictorially shown below in Figure 3:</p>
   <figure>
     <div class="l-body">
-      <%= require("../static/images/kl.svg") %>
+      <img src="https://raw.githubusercontent.com/PradeepKadubandi/599-dl-report/master/static/images/kl.png" style="width: 50%">
     </div>
     <figcaption>
       <span class="figure-number">Fig 3. KL Divergence</span>
@@ -233,7 +238,7 @@
 
   <figure>
     <div class="l-body">
-      <%= require("../static/images/hindsight_data.svg") %>
+      <img src="https://raw.githubusercontent.com/PradeepKadubandi/599-dl-report/master/static/images/hindsight_data.png" style="width: 50%">
     </div>
     <figcaption>
       <span class="figure-number">Figure 4. Hindsight Experiene Replay with Adaptive Learning Rate.</span>
@@ -247,7 +252,7 @@
   </p>
   <figure>
     <div class="l-body">
-      <%= require("../static/images/Algorithm.svg") %>
+      <img src="https://raw.githubusercontent.com/PradeepKadubandi/599-dl-report/master/static/images/algorithm.png" style="width: 50%">
     </div>
     <figcaption>
       <span class="figure-number">Figure 5. Algorithm</span>
@@ -274,7 +279,7 @@
     generated from the policy trained without the regularization term.
   </p>
   <figure>
-    <div class="l-body" style="text-align: center;">
+    <div class="l-body">
       <img src="https://raw.githubusercontent.com/PradeepKadubandi/599-dl-report/master/static/images/multitasks_wo.png" style="width: 50%">
     </div>
     <figcaption>
@@ -294,7 +299,7 @@
   </p>
 
   <figure> 
-    <div class="l-body" style="text-align: center;">
+    <div class="l-body">
       <img src="https://raw.githubusercontent.com/PradeepKadubandi/599-dl-report/master/static/images/multitasks_with_reg.png" style="width: 50%">
     </div>
     <figcaption>
