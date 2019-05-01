@@ -93,7 +93,7 @@ figure figcaption {
 <d-article>
 
   <h2>
-    Goal
+    Introduction
   </h2>
   <p>
     In recent years, there has been great progress in algorithms in the 
@@ -104,15 +104,7 @@ figure figcaption {
     composable skills <d-cite key="hausman2018learning"></d-cite>.
     While skills can be defined discretely with labels and used for planning, 
     humans tend to use natural language to describe a task.
-    For example, people can ask "take a cup from shelf, fill in water, 
-    and give it to me." Such natural language instructions provide an 
-    expressive way to describe complex tasks using skill primitives 
-    and allow the human to be in the loop to assist an agent.
   </p>
-
-  <h2>
-    Motivation
-  </h2>
   <p>
     Let's say you are playing an imitation game with your friend, in which you receive the instruction that reads "Jump up the terrain. Then, move forward," as shown in Figure 1. By receiving this instruction, you realize that to complete the instructed task, you need to first complete the "jumping up the terrain" task, then the "moving forward" task. This is because humans are capable of decomposing a task description of concatenated subtask descriptions into sequentially operatable components. Can autonomous agents recognize such properties in natural language instructions too?
   </p>
@@ -138,7 +130,7 @@ figure figcaption {
     to achieve more complex tasks.
   </p>
 
-  <h2>Related Work</h2>
+  <h2>Past Works</h2>
   <p>
       <b>Language-Guided Agent</b> There has been extensive studies done in the
       language-guided agent domain 
@@ -158,12 +150,9 @@ figure figcaption {
 
   <p><b>Task Embedding</b> Task embedding has been explored by 
     <d-cite key="hausman2018learning"></d-cite>, which learns a mapping from 
-    task ID to a continuous space. However, sampling from this embedding 
-    function is hard because it takes task ID's, which need to be defined 
-    before the pre-training process, as input. 
-    Our work utilizes the flexibility of natural languages. This allows us 
-    to further utilize our latent space for learning from demonstration 
-    and generating trajectory descriptions.
+    discrete task labels to a continuous latent space. However, sampling from this embedding 
+    function is hard because it takes task labels, which need to be defined 
+    before the pre-training process, as input. In order to achieve unseen tasks, this system has to train a new model to sample latent variables, as <d-cite key="he2018zero"></d-cite> and <d-cite key="julian2018scaling"></d-cite> do. Our work utilizes the flexibility of natural languages. This allows us to further utilize our latent space for unseen task during pre-training. In comparison to <d-cite key="hausman2018learning"></d-cite>, our work also embeds the sequencing information to the latent space. Without further learning and environment interactions, we demonstrated the possibilities of learning multiple tasks and sequencing them in parallel. 
   </p>
 
   <p>
@@ -186,7 +175,7 @@ figure figcaption {
       an embedding function from which we can sample efficiently.
   </p>
 
-  <h2>Models and Approaches</h2>
+  <h2>Approach</h2>
   <p>
       Our method, as illustrated in Figure 2, is motivated by 
       <d-cite key="hausman2018learning"></d-cite>. The model we design consists 
@@ -200,7 +189,7 @@ figure figcaption {
       <img src="https://raw.githubusercontent.com/PradeepKadubandi/599-dl-report/master/static/images/method_improved.png" style="width: 70%">
     </div>
     <figcaption>
-      <span class="figure-number">Figure 2. Method.</span>
+      <span class="figure-number">Figure 2. Task Embedding Algorithm.</span>
     </figcaption>
   </figure>
 
@@ -244,7 +233,7 @@ figure figcaption {
       <img src="https://raw.githubusercontent.com/PradeepKadubandi/599-dl-report/master/static/images/kl.png" style="width: 85%">
     </div>
     <figcaption>
-      <span class="figure-number">Fig 3. KL divergence term.</span>
+      <span class="figure-number">Fig 3. Visualization of the regularization term that we used in the objective function to minimize the KL-divergence between the action distributions produced by two single sentences and those produced by a concatenated sentence.</span>
     </figcaption>
   </figure>
 
@@ -303,9 +292,9 @@ figure figcaption {
   <p>
       We setup a point mass environment with natural language input 
       to show that our method can learn task embeddings capable of 
-      finishing a distribution of different tasks. The environment 
+      achieving different tasks. In pre-train time, the environment 
       has 4 different tasks, asking the point mass agent to move 
-      right, up, left, and down to a goal position that is 3 units 
+      right, up, left, and down to a goal position that is 2 units 
       away from the agent's start position. The agent's start position 
       is fixed at the origin of the space. The natural language 
       instructions are hardcoded for the simplicity of experiment setup.
@@ -343,7 +332,7 @@ figure figcaption {
       <img src="https://raw.githubusercontent.com/PradeepKadubandi/599-dl-report/master/static/images/rollout.png" style="width: 80%">
     </div>
     <figcaption>
-      <span class="figure-number">Figure 6. Left: trajectory of rolling out of "move up and move right"; right: trajectory of rolling out of "move right and move up". 10 trajectories are collected for each sequencing tasks and the average of them are plotted.
+      <span class="figure-number">Figure 6. Left: trajectory of rolling out of "move right and move up"; right: trajectory of rolling out of "move up and move right". 10 trajectories are collected for each sequencing tasks and the average of them are plotted.
       </span>
     </figcaption>
   </figure>
