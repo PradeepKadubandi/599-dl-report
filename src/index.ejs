@@ -291,6 +291,46 @@
     </figcaption>
   </figure>
 
+  <p>
+      We also setup a robot reaching box environment using mujoco with natural language as input. In the training time, the environment has 4 different tasks that asking the robot arm to reach red, yellow, green or blue box. The agent's and boxes position are random. The agent will get a reward that is inversely proportional to the distance between agent and target box. 
+  </p>
+
+  <div class="l-body">
+  <video controls>
+      <source src="videos/point_reach_without_reg.mov" type="video/mp4">
+  </video>
+      <figcaption>
+        Trejectory of rolling out of "reach green reach blue" without regularization.
+      </figcaption>
+  </div>
+
+  <div class="l-body">
+  <video controls>
+      <!-- <source src="videos/point_reach_with_reg_old.mov" type="video/mp4"> -->
+      <source src="videos/point_reach_with_reg.mov" type="video/mp4">
+  </video>
+      <figcaption>
+          Trejectory of rolling out of "reach green reach blue" with regularization.
+      </figcaption>
+  </div>
+
+  <figure> 
+    <div class="l-body">
+      <img src="videos/point_reach_with_reg.png" style="width: 80%">
+    </div>
+    <figcaption>
+      <span class="figure-number"> Trajectory of rolling out of "reach green reach blue" with regularization.
+      </span>
+    </figcaption>
+  </figure>
+
+  <p></p>
+
+  <p>
+    As shown in videos above, the trajectory of rolling out with regularization has sequencing property, while the trajectory without regularization does not.
+  </p>
+
+
   <p></p>
 
   <h2>Future Work</h2>
