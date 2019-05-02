@@ -102,11 +102,10 @@ figure figcaption {
     Among these successes, learning representations of tasks in the 
     form of latent space is demonstrated to be useful for learning 
     composable skills <d-cite key="hausman2018learning"></d-cite>.
-    While skills can be defined discretely with labels and used for planning, 
-    humans tend to use natural language to describe a task.
   </p>
   <p>
-    Let's say you are playing an imitation game with your friend, in which you receive the instruction that reads "Jump up the terrain. Then, move forward," as shown in Figure 1. By receiving this instruction, you realize that to complete the instructed task, you need to first complete the "jumping up the terrain" task, then the "moving forward" task. This is because humans are capable of decomposing a task description of concatenated subtask descriptions into sequentially operatable components. Can autonomous agents recognize such properties in natural language instructions too?
+    While skills can be defined discretely with labels and used for planning, 
+    humans tend to use natural language to describe a task. In addition to the difference in task specification format, natural language instructions tend to be more flexible than discrete labels. For example, let's say you are playing an imitation game with your friend, in which you receive the instruction that reads "Jump up the terrain. Then, move forward," as shown in Figure 1. By receiving this instruction, you realize that to complete the instructed task, you need to first complete the "jumping up the terrain" task, then the "moving forward" task. This is because humans are capable of decomposing a task description of concatenated subtask descriptions into sequentially operatable components. Can autonomous agents recognize such properties in natural language instructions too?
   </p>
   <figure>
     <div class="l-body">
@@ -288,7 +287,7 @@ figure figcaption {
     </figcaption>
   </figure>
 
-  <h2>Experiments</h2>
+  <h2>Results</h2>
   <p>
       We setup a point mass environment with natural language input 
       to show that our method can learn task embeddings capable of 
