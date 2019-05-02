@@ -4,10 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://distill.pub/template.v2.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <style><%= require("raw-loader!../static/style.css") %></style>
   <style>
     .l-body {
       text-align: center;
+    }
+  </style>
+  <style>
+    .kernel-grid {
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media only screen and (min-width: 1168px) {
+      .kernel-grid {
+        display: inline-grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+    }
+    .grid-item {
+      margin: 1em;
     }
   </style>
 </head>
@@ -20,9 +36,23 @@
   "description": "CSCI 599 Course Project Final Report",
   "authors": [
     {
-      "author": "Team DeepJohn",
-      "authorURL": "https://github.com/zhanpenghe/embed2learn/",
-      "affiliation": "University of Southern California",
+      "author": "Zhanpeng He",
+      "affiliation": "USC",
+      "affiliationURL": "https://www.cs.usc.edu/"
+    },
+    {
+      "author": "Jingyun Yang",
+      "affiliation": "USC",
+      "affiliationURL": "https://www.cs.usc.edu/"
+    },
+    {
+      "author": "Pradeep Kadubandi",
+      "affiliation": "USC",
+      "affiliationURL": "https://www.cs.usc.edu/"
+    },
+    {
+      "author": "Yao Gu",
+      "affiliation": "USC",
       "affiliationURL": "https://www.cs.usc.edu/"
     }
   ],
@@ -290,36 +320,36 @@
       </span>
     </figcaption>
   </figure>
-
+<!--
   <p>
-      We also setup a robot reaching box environment using mujoco with natural language as input. In the training time, the environment has 4 different tasks that asking the robot arm to reach red, yellow, green or blue box. The agent's and boxes position are random. The agent will get a reward that is inversely proportional to the distance between agent and target box. 
+    We also setup a robot reaching box environment using mujoco with natural language as input. In the training time, the environment has 4 different tasks that asking the robot arm to reach red, yellow, green or blue box. The agent's and boxes position are random. The agent will get a reward that is inversely proportional to the distance between agent and target box. 
   </p>
 
-  <div class="l-body">
-  <video controls>
-      <source src="videos/point_reach_without_reg.mov" type="video/mp4">
-  </video>
-      <figcaption>
-        Trejectory of rolling out of "reach green reach blue" without regularization.
-      </figcaption>
-  </div>
-
-  <div class="l-body">
-  <video controls>
-      <!-- <source src="videos/point_reach_with_reg_old.mov" type="video/mp4"> -->
-      <source src="videos/point_reach_with_reg.mov" type="video/mp4">
-  </video>
-      <figcaption>
-          Trejectory of rolling out of "reach green reach blue" with regularization.
-      </figcaption>
-  </div>
+  <figure>
+    <div class="l-body">
+      <div class="kernel-grid">
+        <div class="grid-item">
+          <video controls>
+              <source src="videos/point_reach_without_reg.mov" type="video/mp4">
+          </video>
+          <video controls>
+            <source src="videos/point_reach_with_reg.mov" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <figcaption>
+      <span class="figure-number">Figure 7. Left: trejectory of rolling out of "reach green reach blue" without regularization; right: trajectory of rolling out of "reach green reach blue" with regularization.
+      </span>
+    </figcaption>
+  </figure>
 
   <figure> 
     <div class="l-body">
       <img src="videos/point_reach_with_reg.png" style="width: 80%">
     </div>
     <figcaption>
-      <span class="figure-number"> Trajectory of rolling out of "reach green reach blue" with regularization.
+      <span class="figure-number">Figure 8. Trajectory of rolling out of "reach green reach blue" with regularization.
       </span>
     </figcaption>
   </figure>
@@ -332,6 +362,7 @@
 
 
   <p></p>
+-->
 
   <h2>Future Work</h2>
   <p>
@@ -382,4 +413,10 @@
 <!-- bibliography will be inlined during Distill pipeline's pre-rendering -->
 <d-bibliography src="bibliography.bib"></d-bibliography>
 
+<script type="text/javascript">
+  $( document ).ready(function() {
+    $('.authors-affiliations').next().children().last().children().last().text('April 30, 2019').css('font-style', 'normal');
+    $('.authors-affiliations').next().next().children().first().text('Team Name').next().children().last().text('DeepJohn').css('font-style', 'normal');
+  });
+</script>
 </body>
