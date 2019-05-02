@@ -7,6 +7,22 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <style><%= require("raw-loader!../static/style.css") %></style>
   <style>
+    .div-bg {
+      background: url("https://wallpaperaccess.com/full/400483.jpg") no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      padding-top: 40px;
+      padding-bottom: 50px;
+    }
+    .div-bg d-byline {
+      border-top: none;
+    }
+    .div-bg h1, .div-bg a, .div-bg h3, .div-bg p {
+      color: white;
+      text-shadow: #000 0px 0px 5px;
+    }
     .l-body {
       text-align: center;
     }
@@ -25,6 +41,7 @@
 
 <body>
 
+<div class="div-bg">
 <d-front-matter>
   <script type="text/json">{
   "title": "Learning a Sentence Embedding by Actuation",
@@ -69,6 +86,8 @@
 </d-front-matter>
 
 <d-title></d-title>
+<d-byline></d-byline>
+</div>
 
 <d-article>
 
