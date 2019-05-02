@@ -149,7 +149,7 @@ figure figcaption {
   </p>
   <p>
     While skills can be defined discretely with labels and used for planning, 
-    humans tend to use natural language to describe a task. In addition to the difference in task specification format, natural language instructions tend to be more flexible than discrete labels. For example, let's say you are playing an imitation game with your friend, in which you receive the instruction that reads "Jump up the terrain. Then, move forward," as shown in Figure 1. By receiving this instruction, you realize that to complete the instructed task, you need to first complete the "jumping up the terrain" task, then the "moving forward" task. This is because humans are capable of decomposing a task description of concatenated subtask descriptions into sequentially operatable components. Can autonomous agents recognize such properties in natural language instructions too?
+    humans tend to use natural language to describe a task. In addition to the difference in task specification format, natural language instructions tend to be more flexible than discrete labels. For example, let's say you are playing an imitation game with your friend, in which you receive the instruction that reads "Jump up to the terrain. Then, move forward," as shown in Figure 1. By receiving this instruction, you realize that to complete the instructed task, you need to first complete the "jumping up the terrain" task, then the "moving forward" task. This is because humans are capable of decomposing a task description of concatenated subtask descriptions into sequentially operatable components. Can autonomous agents recognize such properties in natural language instructions too?
   </p>
   <figure>
     <div class="l-body">
@@ -195,7 +195,7 @@ figure figcaption {
     <d-cite key="hausman2018learning"></d-cite>, which learns a mapping from 
     discrete task labels to a continuous latent space. However, sampling from this embedding 
     function is hard because it takes task labels, which need to be defined 
-    before the pre-training process, as input. In order to achieve unseen tasks, this system has to train a new model to sample latent variables, as <d-cite key="he2018zero"></d-cite> and <d-cite key="julian2018scaling"></d-cite> do. Our work utilizes the flexibility of natural languages. This allows us to further utilize our latent space for unseen task during pre-training. In comparison to <d-cite key="hausman2018learning"></d-cite>, our work also embeds the sequencing information to the latent space. Without further learning and environment interactions, we demonstrated the possibilities of learning multiple tasks and sequencing them in parallel. 
+    before the pre-training process, as input. In order to achieve unseen tasks, this system has to train a new model to sample latent variables, as <d-cite key="he2018zero"></d-cite> and <d-cite key="julian2018scaling"></d-cite> do. Our work utilizes the flexibility of natural languages. This allows us to further utilize our latent space for unseen tasks during pre-training. In comparison to <d-cite key="hausman2018learning"></d-cite>, our work also embeds the sequencing information to the latent space. Without further learning and environment interactions, we demonstrated the possibilities of learning multiple tasks and sequencing them in parallel. 
   </p>
 
   <p>
@@ -384,7 +384,7 @@ figure figcaption {
 
   <p>
     Also, when we used the regularization, we can see that the learned
-    task embeddings enable the policy to achive more complex goal
+    task embeddings enable the policy to achieve more complex goal
     (specifically a goal described as a concatenated sentence from simpler goals).
     As shown in the Figure 6 below, when we used a complex goal at test time,
     the policy network trained only with simpler goals at training time,
@@ -424,10 +424,10 @@ figure figcaption {
 
   <h2>Future Work</h2>
   <p>
-    For future work, we will run the experiments in a more complicated and realistic environment. The first environment we can think of is the minecraft environment, in which different types of objects are placed in a gridworld with different rules of interactions, and a task consists of making a specified interaction with the environment; the second environment is a realistic robot pushing envioronment where a task constitutes of pushing a described object in the scene to another specified location.
+    For future work, we will run the experiments in a more complicated and realistic environment. The first environment we can think of is the Minecraft environment, in which different types of objects are placed in a gridworld with different rules of interactions, and a task consists of making a specified interaction with the environment; the second environment is a realistic robot pushing environment where a task constitutes of pushing a described object in the scene to another specified location.
   </p>
   <p>
-    Another task we will work on is scaling the language set that our experiment works with. Currently we are working on very small language sets with fixed grammar. We wish to collect a much larger task set with diverse language descriptions, possibly through human labeling of tasks.
+    Another task we will work on is scaling the language set that our experiment works with. Currently, we are working on very small language sets with fixed grammar. We wish to collect a much larger task set with diverse language descriptions, possibly through human labeling of tasks.
   </p>
 
   <h2>Conclusion</h2>
