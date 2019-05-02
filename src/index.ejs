@@ -244,18 +244,40 @@
       <%= require("../static/images/eq1.svg") %>
     </div>
   </figure>
+
+<!--   <d-math block>
+        \mathfrak{L}(\theta, \phi, \psi) =
+    \max_\pi \mathbb{E}_{{\pi(a, z|s, st) \ st\in T}}
+        \left[
+            \sum_{i=0}^\infty \gamma^i \hat{r}(s_i, a_i, z, st) \bigg| s_{i+1} \sim p(s_{i+1}|a_i, s_i)
+        \right] + \lambda R(\theta, \phi)
+  </d-math> -->
+
   <p>where</p>
+  
   <figure>
     <div class="l-body">
       <%= require("../static/images/eq2.svg") %>
     </div>
   </figure>
+
+<!--   <d-math block>
+    \hat{r}(s_i, a_i, z, st) = \alpha_1 \mathbb{E}_{st\in T} \left[\mathcal{H}\{p_\phi(z|st)\}\right] + \alpha_2 \log q_\psi(z | s_i^H) + \alpha_3 \mathcal{H}\{\pi_\theta(a_i | s_i, z)\} + r_{st}(s_i, a_i)  
+  </d-math> -->
+  
   <p>and</p>
+  
   <figure>
     <div class="l-body">
       <%= require("../static/images/eq3.svg") %>
     </div>
   </figure>
+
+<!--   <d-math block>
+    R(\theta, \phi) = \mathbb{E}_{{\pi(a, z|s, st)\ st_1, st_2 \in T}}
+
+    \bigg[\sum_{t=0}^{H_1+H_2}D_{KL}\big[ P\big(a | st_1\big)\mathbb{I}[t <= H_1] + P\big(a | st_2\big)\mathbb{I}[t > H_1] ~ \big|\big| ~ P\big(a | [st_1, st_2]\big) \big]\bigg].
+  </d-math> -->
 
   <p>
       In order to calculate the regularization term, we augment our 
